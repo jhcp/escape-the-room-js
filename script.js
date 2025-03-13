@@ -175,51 +175,11 @@ function handleTryEscape() {
 
 // Handle play again button click
 function handlePlayAgain() {
-  // Clear PIN and restart the game
-  clearPin()
+  // Just reload the page (PIN is already cleared)
   window.location.reload()
 }
 
-// Unlock the room
-function unlockRoom() {
-  // Update UI
-  escapeScreen.style.borderColor = "#10b981"
-  escapeHeader.classList.add("success")
-  lockIconContainer.classList.add("success")
-
-  // Change lock icon to unlock icon
-  lockIcon.innerHTML = `
-    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-    <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
-  `
-
-  escapeTitle.textContent = "Unlocked!"
-  escapeDescription.textContent = "You've escaped!"
-
-  // Hide keypad and try escape button
-  document.querySelector(".keypad").style.display = "none"
-  tryEscapeButton.classList.add("hidden")
-
-  // Show play again button
-  playAgainButton.classList.remove("hidden")
-
-  // Show celebration
-  showCelebration()
-}
-
-// Show celebration effects
-function showCelebration() {
-  // Show celebration overlay
-  celebrationOverlay.classList.remove("hidden")
-
-  // Create confetti
-  createConfetti()
-
-  // Play sound
-  playSuccessSound()
-}
-
-// Create confetti effect
+// Function to create confetti
 function createConfetti() {
   const colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]
 
@@ -263,9 +223,45 @@ function createConfetti() {
   }
 }
 
-// Play success sound
-function playSuccessSound() {
-  const audio = new Audio();
-  // Use a simple success sound URL or base64 encoded audio\
-  audio.src = 'data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAAbAAkJCQkJCQkJCQkJCQkJCQwMDAwMDAwMDAwMDAwMDAwMD4+Pj4+Pj4+Pj4+Pj4+Pj4//////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAYAAAAAAAAAAbA6dgfJAAAAAAAAAAAAAAAAAAAA/+MYxAANmAqIWUEQACCGkqc1TKQQHAYHiQACBxycQ5EIQhDkOXI5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPlz5c+XPl
+// Unlock the room
+function unlockRoom() {
+  // Clear PIN immediately so a new game starts fresh
+  clearPin()
+
+  // Update UI
+  escapeScreen.style.borderColor = "#10b981"
+  escapeHeader.classList.add("success")
+  lockIconContainer.classList.add("success")
+
+  // Change lock icon to unlock icon
+  lockIcon.innerHTML = `
+    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+    <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+  `
+
+  escapeTitle.textContent = "Unlocked!"
+  escapeDescription.textContent = "You've escaped!"
+
+  // Hide keypad and try escape button
+  document.querySelector(".keypad").style.display = "none"
+  tryEscapeButton.classList.add("hidden")
+
+  // Show play again button
+  playAgainButton.classList.remove("hidden")
+
+  // Show celebration
+  showCelebration()
+}
+
+// Show celebration effects
+function showCelebration() {
+  // Show celebration overlay
+  celebrationOverlay.classList.remove("hidden")
+
+  // Create confetti
+  createConfetti()
+}
+
+// Initialize the game when the page loads
+document.addEventListener("DOMContentLoaded", initGame)
 
