@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape the Room</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="card">
+      <div class="card-header">
+        <div class="icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h1 class="card-title">Secret Lock</h1>
+        <p class="card-description">Create a 3-digit PIN to lock the room</p>
+      </div>
+      <div class="card-content">
+        <form id="pin-form">
+          <div class="form-group">
+            <label for="pin-input" class="form-label">Enter your secret PIN:</label>
+            <input 
+              id="pin-input" 
+              type="text" 
+              inputmode="numeric" 
+              pattern="[0-9]*" 
+              maxlength="3" 
+              placeholder="123" 
+              class="pin-input"
+            >
+            <p id="pin-error" class="error-message"></p>
+          </div>
+          <button type="submit" id="lock-button" class="button button-primary" disabled>
+            Lock the Room
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Escape Screen -->
+    <div id="escape-screen" class="card hidden">
+      <div class="card-header" id="escape-header">
+        <div class="icon-container" id="lock-icon-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" id="lock-icon">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h1 class="card-title" id="escape-title">Locked Room</h1>
+        <p class="card-description" id="escape-description">Enter the correct PIN to escape</p>
+      </div>
+      <div class="card-content">
+        <div class="pin-display">
+          <div class="pin-digit" id="digit-0"></div>
+          <div class="pin-digit" id="digit-1"></div>
+          <div class="pin-digit" id="digit-2"></div>
+        </div>
+
+        <div class="keypad">
+          <button class="keypad-button" data-digit="1">1</button>
+          <button class="keypad-button" data-digit="2">2</button>
+          <button class="keypad-button" data-digit="3">3</button>
+          <button class="keypad-button" data-digit="4">4</button>
+          <button class="keypad-button" data-digit="5">5</button>
+          <button class="keypad-button" data-digit="6">6</button>
+          <button class="keypad-button" data-digit="7">7</button>
+          <button class="keypad-button" data-digit="8">8</button>
+          <button class="keypad-button" data-digit="9">9</button>
+          <button class="keypad-button keypad-clear" id="clear-button">Clear</button>
+          <button class="keypad-button" data-digit="0">0</button>
+          <button class="keypad-button keypad-delete" id="delete-button">←</button>
+        </div>
+
+        <button id="try-escape-button" class="button button-escape" disabled>
+          Try to Escape
+        </button>
+        <button id="play-again-button" class="button button-success hidden">
+          Play Again
+        </button>
+      </div>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebration-overlay" class="celebration-overlay hidden">
+      <h1 class="celebration-text">YOU ESCAPED!</h1>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
